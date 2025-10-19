@@ -1,21 +1,77 @@
-📢 Te Informo: Tu Asistente de Noticias PersonalizadoUn agente conversacional inteligente diseñado para combatir la sobrecarga informativa y ayudarte a descubrir contenido verdaderamente relevante.📜 Resumen"Te Informo" es un agente conversacional que va más allá de una simple búsqueda. A través de un diálogo interactivo, el agente emplea la técnica de Búsqueda en Árbol Monte Carlo (MCTS) para explorar y comprender tus verdaderos intereses. Su función principal es proporcionar un boletín de noticias personalizado bajo demanda, que no solo sea altamente relevante, sino que también fomente el descubrimiento de temas nuevos y fascinantes.👥 Nuestro EquipoNombreRol👨‍💻 Alfonte Tarqui RendoFrontend & UX🧪 Cuyo Zamata Yimmy Y.QA👩‍💼 Turpo Quispe Patty M.Project Manager🧠 Mamani Zapana EdwardAI Lead🎯 El Problema: Carga Cognitiva en la BúsquedaLa búsqueda activa de información es una tarea mentalmente agotadora. El usuario se ve obligado a actuar como su propio "gestor de proyecto": formula consultas, evalúa la relevancia, gestiona múltiples pestañas, filtra contenido y sintetiza la información. Este proceso genera una alta carga cognitiva.Nuestro agente se posiciona como un asistente de investigación personal que absorbe esta carga. En lugar de que gestiones el caos informativo, "Te Informo" asume la responsabilidad de navegar, filtrar, resumir y, crucialmente, sugerir de manera inteligente los siguientes pasos en tu exploración de conocimiento.🛠️ Stack TecnológicoNuestra arquitectura Cliente-Servidor se compone de las siguientes tecnologías:🧠 Backend (El Cerebro)Runtime/Servidor: Node.js y Express.js con TypeScript.Web Scraping: Axios y Cheerio para la extracción de información de sitios de noticias.Inteligencia Artificial: Lógica MCTS implementada con Gemini para el procesamiento, resumen y sugerencia de contenido.🎨 Frontend (La Interfaz)Lógica y Estructura: TypeScript y Handlebars para una renderización dinámica de la conversación.Diseño: Tailwind CSS para una interfaz moderna y completamente responsiva.📦 Aplicación y DespliegueApp de Escritorio: Electron y Electron Builder para empaquetar la aplicación en un .exe para Windows.Control de Versiones y Despliegue Web: GitHub para el código fuente y Vercel para el despliegue continuo.✅ Solución Esperada y Pruebas de ÉxitoFuncionalidades Clave[ ] Una interfaz de chat completamente funcional e intuitiva.[ ] Capacidad del agente para realizar web scraping de noticias y presentarlas al usuario.[ ] Botones de sugerencia inteligentes y contextualmente relevantes a la conversación.[ ] Refinamiento visible de la búsqueda basado en las sugerencias seleccionadas por el usuario.Criterios de ÉxitoPrueba de Flujo Conversacional: En una conversación de 5 turnos, un usuario debe seguir al menos 2 sugerencias del agente.Prueba de Adaptación: Si el usuario busca "Tesla" y selecciona la sugerencia "Baterías", la siguiente búsqueda debe ser sobre "baterías de Tesla".Prueba de Exploración: El agente debe ser capaz de sugerir un subtema relevante no mencionado explícitamente en la consulta original.🚀 Cómo Empezar (Próximamente)# Clonar el repositorio
-git clone [https://github.com/tu-usuario/te-informo.git](https://github.com/tu-usuario/te-informo.git)
+<p align="center">
+  <img src="https://svgl.app/library/arc.svg" alt="Te Informo Banner" width="720"/>
+</p>
 
-# Instalar dependencias
-cd te-informo
-npm install
+<h1 align="center">
+  Te Informo 🤖📰
+</h1>
 
-# Iniciar la aplicación
-npm start
-🤝 Contribuciones (Próximamente)Las contribuciones son bienvenidas. Por favor, abre un 'issue' para discutir lo que te gustaría cambiar o mejorar.
-  @media print {
-    .ms-editor-squiggler {
-        display:none !important;
-    }
-  }
-  .ms-editor-squiggler {
-    all: initial;
-    display: block !important;
-    height: 0px !important;
-    width: 0px !important;
-  }
+<p align="center">
+  <strong>Un agente conversacional inteligente que combate la sobrecarga informativa y redefine tu forma de descubrir noticias.</strong>
+</p>
+
+<p align="center">
+  <img alt="Estado del Proyecto" src="https://img.shields.io/badge/estado-en%20desarrollo-yellowgreen">
+  <img alt="Lenguaje Principal" src="https://img.shields.io/badge/language-TypeScript-blue.svg">
+  <img alt="Backend" src="https://img.shields.io/badge/backend-Node.js-green">
+  <img alt="Licencia" src="https://img.shields.io/badge/licencia-MIT-purple">
+</p>
+
+---
+
+## 📚 Tabla de Contenidos
+* [El Problema](#-el-problema)
+* [Stack Tecnológico](#-stack-tecnológico)
+* [Solución y Criterios de Éxito](#-solución-y-criterios-de-éxito)
+* [Conoce al Equipo](#-conoce-al-equipo)
+
+---
+
+## 🎯 El Problema
+
+En la era digital, buscar información es agotador. Actuamos como nuestros propios gestores de proyectos: formulamos búsquedas, filtramos ruido, gestionamos pestañas y sintetizamos datos. Este proceso genera una **alta carga cognitiva** que nos aleja del objetivo principal: aprender.
+
+**Nuestra Solución:** Un agente que asume esa carga. **Te Informo** actúa como tu asistente de investigación personal que navega el caos, filtra lo irrelevante y te presenta resúmenes claros, permitiéndote concentrarte en lo que de verdad importa: el conocimiento.
+
+---
+
+## 🛠️ Stack Tecnológico
+
+Hemos seleccionado un conjunto de herramientas modernas y robustas para construir una plataforma escalable y eficiente.
+
+| Componente              | Tecnologías                                                                                                | Propósito                                                                      |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| 🧠 **Backend** | `Node.js`, `Express.js`, `TypeScript`                                                                      | Construir un servidor rápido, seguro y bien estructurado.                       |
+| 🌐 **Web Scraping** | `Axios`, `Cheerio`                                                                                         | Extraer información de sitios de noticias de forma eficiente.                  |
+| 🤖 **Inteligencia** | Lógica **MCTS** (potencialmente con `Gemini API`)                                                          | Procesar texto, resumir y generar sugerencias conversacionales inteligentes.   |
+| 🎨 **Frontend** | `TypeScript`, `Handlebars`, `Tailwind CSS`                                                                 | Crear una interfaz de chat interactiva, moderna y completamente responsiva.    |
+| 📦 **Empaquetado** | `Electron`, `Electron Builder`                                                                             | Transformar la aplicación web en un programa instalable (`.exe`) para Windows. |
+| 🚀 **Despliegue** | `GitHub` (Control de Versiones) y `Vercel` (Hosting)                                                       | Asegurar un ciclo de desarrollo y despliegue continuo y automatizado.          |
+
+---
+
+## ✅ Solución y Criterios de Éxito
+
+### ✨ Funcionalidades Clave
+- **💬 Interfaz de Chat Intuitiva:** Una experiencia de usuario fluida y agradable.
+- **🔍 Web Scraper Inteligente:** El agente extrae noticias y las presenta de forma clara (titulares y resúmenes).
+- **💡 Sugerencias Contextuales:** Botones de sugerencia que se adaptan a la conversación y guían la exploración.
+- **🔄 Búsqueda Refinada:** Al hacer clic en una sugerencia, la búsqueda se adapta visiblemente al nuevo contexto.
+
+### 📈 Pruebas de Éxito
+Para validar nuestra solución, nos enfocamos en estos resultados medibles:
+
+1.  **Prueba de Flujo Conversacional:** En una sesión de 5 turnos, un usuario debe seguir al menos **2 sugerencias** del agente, demostrando su utilidad.
+2.  **Prueba de Adaptación Contextual:** Si el usuario busca `Tesla` y selecciona `Baterías`, la siguiente búsqueda debe ser específicamente sobre `baterías de Tesla`.
+3.  **Prueba de Descubrimiento:** El agente debe proponer un subtema relevante que **no fue mencionado explícitamente** por el usuario, fomentando la exploración.
+
+---
+
+## 👨‍💻 Conoce al Equipo
+
+| Nombre                     | Rol                | GitHub                                |
+| -------------------------- | ------------------ | ------------------------------------- |
+| **Alfonte Tarqui Rendo** | Frontend & UX      | `[@ForLess01]`(https://github.com/ForLess01) |
+| **Cuyo Zamata Yimmy Yeyson**| QA                 | `[@username]`(https://github.com/username) |
+| **Turpo Quispe Patty Milagros**| Project Manager    | `[@username]`(https://github.com/username) |
+| **Mamani Zapana Edward** | AI Lead            | `[@username]`(https://github.com/username) |
