@@ -71,7 +71,7 @@ Para validar nuestra solución, nos enfocamos en estos resultados medibles:
 
 | Nombre                     | Rol                | GitHub                                |
 | -------------------------- | ------------------ | ------------------------------------- |
-| **Alfonte Tarqui Rendo** | Frontend & UX      | `[@ForLess01]`(https://github.com/ForLess01) |
-| **Cuyo Zamata Yimmy Yeyson**| QA                 | `[@username]`(https://github.com/username) |
-| **Turpo Quispe Patty Milagros**| Project Manager    | `[@username]`(https://github.com/username) |
-| **Mamani Zapana Edward** | AI Lead            | `[@username]`(https://github.com/username) |
+| **Alfonte Tarqui Rendo** | Frontend & UX      | `@ForLess01` (https://github.com/ForLess01) |
+| **Cuyo Zamata Yimmy Yeyson**| QA                 | `[@username]` (https://github.com/username) |
+| **Turpo Quispe Patty Milagros**| Project Manager    | `[@username]` (https://github.com/username) |
+| **Mamani Zapana Edward** | AI Lead            | `[@username]` (https://github.com/username) |
