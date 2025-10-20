@@ -1,0 +1,68 @@
+{
+  "name": "te-informo-ai-agent",
+  "version": "1.0.0",
+  "description": "Agente AI conversacional con búsqueda guiada por MCTS y interfaz Glassmorphism",
+  "main": "main.js",
+  "scripts": {
+    "start": "npm run build:backend && concurrently \"npm run start:backend\" \"start frontend/index.html\"",
+    "start:backend": "node backend/dist/server.js",
+    "start:frontend": "start frontend/index.html",
+    "dev:backend": "ts-node-dev --respawn --transpile-only backend/src/server.ts",
+    "build:backend": "tsc -p backend/tsconfig.json",
+    "dev:electron": "electron .",
+    "build:electron": "electron-builder",
+    "build": "npm run build:backend"
+  },
+  "keywords": [
+    "ai",
+    "mcts",
+    "search",
+    "agent",
+    "electron"
+  ],
+  "author": "Team Te-Informo",
+  "license": "MIT",
+  "dependencies": {
+    "@google/genai": "^1.25.0",
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "puppeteer": "^24.25.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.6",
+    "@types/cors": "^2.8.15",
+    "@types/express": "^4.17.20",
+    "@types/http-cache-semantics": "^4.0.4",
+    "@types/ms": "^2.1.0",
+    "@types/node": "^20.9.0",
+    "@types/qs": "^6.14.0",
+    "@types/range-parser": "^1.2.7",
+    "@types/send": "^1.2.0",
+    "@types/serve-static": "^1.15.9",
+    "concurrently": "^9.2.1",
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  },
+  "build": {
+    "appId": "com.teinformo.app",
+    "productName": "Te Informo",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "frontend/**/*",
+      "main.js"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "frontend/assets/icon.ico"
+    }
+  }
+}

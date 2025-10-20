@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te Informo - Agente AI Conversacional</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/icon.png">
+</head>
+<body>
+    <!-- Background Gradient -->
+    <div class="background-gradient"></div>
+    
+    <!-- Main Layout: Sidebar + Content -->
+    <div class="app-layout">
+        <!-- Botón pestaña para abrir chat -->
+        <button id="chatTab" class="chat-tab" title="Abrir chat">💬</button>
+        
+        <!-- Sidebar Chat (Izquierda) - Oculto por defecto -->
+        <aside id="sidebar" class="sidebar hidden-sidebar">
+            <div class="sidebar-header">
+                <div class="logo-mini">🤖</div>
+                <div class="sidebar-title">Chat</div>
+                <button id="toggleSidebar" class="toggle-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="sidebar-content">
+                <!-- Intereses del Usuario -->
+                <div class="interests-section">
+                    <div class="interests-header">
+                        <h4>💡 Mis Intereses</h4>
+                        <button id="addInterestBtn" class="add-interest-btn" title="Agregar interés">+</button>
+                    </div>
+                    <div id="interestsList" class="interests-list">
+                        <p class="interests-empty">Agrega tus intereses para personalizar las noticias</p>
+                    </div>
+                    <div id="addInterestForm" class="add-interest-form hidden">
+                        <input type="text" id="interestInput" placeholder="Ej: Tecnología, Deportes..." />
+                        <button id="saveInterestBtn">Guardar</button>
+                        <button id="cancelInterestBtn">Cancelar</button>
+                    </div>
+                </div>
+                
+                <!-- Chat Messages -->
+                <div id="chatMessages" class="chat-messages">
+                    <div class="message agent-message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <p>¿Qué noticias te interesan hoy?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="messageInput" 
+                        class="message-input" 
+                        placeholder="Pregunta algo..."
+                        autocomplete="off"
+                    >
+                    <button id="sendBtn" class="send-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <button id="resetBtn" class="reset-btn-small" title="Nueva conversación">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+                        <path d="M21 3v5h-5"/>
+                        <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+                        <path d="M3 21v-5h5"/>
+                    </svg>
+                    Reiniciar
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area (Centro/Derecha) -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header glass-card">
+                <div class="header-left">
+                    <h1 class="logo-text">📰 Te Informo</h1>
+                    <p class="subtitle">Noticias curadas por IA en tiempo real</p>
+                </div>
+                <div class="header-right">
+                    <div id="statusIndicator" class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Listo</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Display -->
+            <div id="contentArea" class="content-area">
+                <!-- Welcome Screen -->
+                <div id="welcomeScreen" class="welcome-screen">
+                    <div class="welcome-icon">🔍</div>
+                    <h2>Bienvenido a Te Informo</h2>
+                    <p>Tu agente de noticias impulsado por IA</p>
+                    <div class="quick-topics">
+                        <p class="quick-topics-title">Temas populares:</p>
+                        <button class="topic-btn" onclick="quickSearch('Tecnología')">Tecnología</button>
+                        <button class="topic-btn" onclick="quickSearch('Economía')">Economía</button>
+                        <button class="topic-btn" onclick="quickSearch('Ciencia')">Ciencia</button>
+                        <button class="topic-btn" onclick="quickSearch('Deportes')">Deportes</button>
+                    </div>
+                </div>
+
+                <!-- AI Analysis Section -->
+                <div id="analysisSection" class="analysis-section hidden">
+                    <div class="analysis-card glass-card">
+                        <h3 class="section-title">🧠 Análisis de IA</h3>
+                        
+                        <!-- Conteo minimalista (letra pequeña) -->
+                        <div id="newsCount" class="news-count"></div>
+                        
+                        <!-- Resumen (análisis extenso) -->
+                        <div id="aiSummary" class="ai-summary"></div>
+                        
+                        <!-- Puntos clave -->
+                        <div id="keyPoints" class="key-points"></div>
+                        
+                        <!-- Sugerencias dinámicas (botones) -->
+                        <div id="suggestions" class="suggestions-container hidden">
+                            <h4 class="suggestions-title">💡 Explora más:</h4>
+                            <div id="suggestionsButtons" class="suggestions-buttons"></div>
+                        </div>
+                        
+                        <!-- Feedback (solo iconos) -->
+                        <div class="feedback-inline">
+                            <button class="feedback-icon-btn" onclick="rateFeedback('like')" title="Me gusta">👍</button>
+                            <button class="feedback-icon-btn" onclick="rateFeedback('dislike')" title="No me gusta">👎</button>
+                            <button class="feedback-icon-btn" onclick="rateFeedback('irrelevant')" title="Fuera de lugar">❌</button>
+                            <span id="feedbackThanks" class="feedback-thanks-inline hidden">✔️ Gracias</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Articles Section -->
+                <div id="articlesSection" class="articles-section hidden">
+                    <h3 class="section-title">📰 Artículos de Periódicos</h3>
+                    <div id="articlesGrid" class="news-grid"></div>
+                </div>
+
+                <!-- Videos Section -->
+                <div id="videosSection" class="videos-section hidden">
+                    <h3 class="section-title">🎥 Videos de Noticias</h3>
+                    <div id="videosGrid" class="news-grid"></div>
+                </div>
+
+
+                <!-- Loading -->
+                <div id="loadingIndicator" class="loading-indicator hidden">
+                    <div class="loading-spinner"></div>
+                    <p>Analizando noticias con IA...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

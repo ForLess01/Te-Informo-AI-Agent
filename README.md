@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://svgl.app/library/arc.svg" alt="Te Informo Banner" width="220"/>
+  <img src="https://svgl.app/library/arc.svg" alt="# Te Informo - Agente AI Conversacional 🤖
 </p>
 
 <h1 align="center">
